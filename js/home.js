@@ -11,13 +11,23 @@ function cerrarSesion(){
     window.location="/permiso_Euroamerican_College/";
 }
 function registro(){
-    window.location="/pages/registro.html";
+    //para local
+    //window.location="/pages/registro.html";
+    //para git pages
+    window.location="/permiso_Euroamerican_College/pages/registro.html";
+
 }
 function salidasEspeciales(){
-    window.location="/pages/salidasEspeciales.html";
+    //para local
+    //window.location="/pages/salidasEspeciales.html";
+    //para git pages
+    window.location="/permiso_Euroamerican_College/pages/registro.html";
 }
 function reporte(){
-    window.location="/pages/reporte.html";
+    //para local
+    //window.location="/pages/reporte.html";
+    //para git pages
+    window.location="/permiso_Euroamerican_College/pages/registro.html";
 }
 
 

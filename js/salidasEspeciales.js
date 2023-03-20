@@ -20,7 +20,7 @@ function regresar(){
     //para local
     //window.location="/pages/home.html";
     //para git pages
-     window.location="/pages/home.html/";
+     window.location="/permiso_Euroamerican_College/pages/home.html";
 }
 
 async function obtenerDatos(){

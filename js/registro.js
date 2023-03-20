@@ -18,9 +18,9 @@ if (localStorage.getItem("usuario") ==null) {
 
 function regresar(){
     //para local
-    window.location="//pages/home.html/";
+    //window.location="/pages/home.html/";
     //para git pages
-    // window.location="/matricula_Euroamerican_College/";
+    window.location="/permiso_Euroamerican_College/pages/home.html";
 }
 
 
