@@ -21,7 +21,7 @@ function salidasEspeciales(){
     //para local
     //window.location="/pages/salidasEspeciales.html";
     //para git pages
-    window.location="/permiso_Euroamerican_College/pages/registro.html";
+    window.location="/permiso_Euroamerican_College/pages/salidasEspeciales.html";
 }
 function reporte(){
     //para local
