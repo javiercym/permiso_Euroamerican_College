@@ -35,7 +35,6 @@ let imprimir = (array)=>{
 
     array.forEach((alumno) => {
         
-        // console.log(index);
         const fechaOriginal = new Date(alumno.fecha);
         const year = fechaOriginal.getFullYear();
         const month = (fechaOriginal.getMonth() + 1).toString().padStart(2, '0');
@@ -49,13 +48,13 @@ let imprimir = (array)=>{
         informacionAlumno+=
         ` 
         <tr>
-        <th>${alumno.alumno}</th>
-        <td>${alumno.idalumno}</td>
-        <td>${alumno.nivel}</td>
-        <td>${alumno.conductor}</td>
-        <td>${alumno.ncamioneta}</td>
-        <td>${alumno.observacion}</td>
-        <td>${fechaFormateada}</td>
+            <th>${alumno.alumno}</th>
+            <td>${alumno.idalumno}</td>
+            <td>${alumno.nivel}</td>
+            <td>${alumno.conductor}</td>
+            <td>${alumno.ncamioneta}</td>
+            <td>${alumno.observacion}</td>
+            <td>${fechaFormateada}</td>
         </tr>
         `   
         
@@ -86,15 +85,13 @@ function guardar(){
             "fecha": "2023-03-20"
         }
  
-            fetch(urlGuardar, {
-                method: "POST",
-                body: JSON.stringify(body),
-                headers: {"Content-type": "application/json; charset=UTF-8"}
-              })
-              .then(response => response.json()) 
-              .then(json => console.log(json))
-              .catch(err => console.log(err));
-
+        fetch(urlGuardar, {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+        .then(response => response.json()) 
+        .then(json => console.log(json))
+        .catch(err => console.log(err));
     }
-
 }

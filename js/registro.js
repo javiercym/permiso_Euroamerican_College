@@ -1,15 +1,10 @@
 const url = 'https://espartano.azurewebsites.net/alumnos';
 const urlGuardar = 'https://espartano.azurewebsites.net/registraSalida';
-//const url = 'https://espartano.azurewebsites.net/matricula';
 let rellenar = document.querySelector("#rellenar"); 
 var nombreAlumno;
 var cantidadResultados;
 
 var input = document.getElementById("nombreAlumno");
-
-window.onload = () => {
-    // obtenerDatos2();
-}
 
 if (localStorage.getItem("usuario") ==null) {
     //window.location="/index.html";
@@ -49,7 +44,6 @@ let imprimir = (array)=>{
 
     array.forEach((alumno) => {
         
-        // console.log(index);
         const fecha = new Date();
         const year = fecha.getFullYear();
         const month = fecha.getMonth() + 1; // Sumamos 1 porque los meses empiezan en 0
@@ -136,14 +130,14 @@ function guardar(){
             "fecha": "2023-03-20"
         }
  
-            fetch(urlGuardar, {
-                method: "POST",
-                body: JSON.stringify(body),
-                headers: {"Content-type": "application/json; charset=UTF-8"}
-              })
-              .then(response => response.json()) 
-              .then(json => console.log(json))
-              .catch(err => console.log(err));
+        fetch(urlGuardar, {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+        .then(response => response.json()) 
+        .then(json => console.log(json))
+        .catch(err => console.log(err));
 
     }
 

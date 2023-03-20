@@ -6,7 +6,6 @@ let rellenar = document.querySelector("#rellenar");
 let rellenar2 = document.querySelector("#rellenar2"); 
 var cantidadResultados;
 
-
 if (localStorage.getItem("usuario") ==null) {
     //window.location="/index.html";
     window.location="/permiso_Euroamerican_College/";
@@ -44,9 +43,9 @@ let imprimir = (array)=>{
         informacionAlumno+=
         ` 
         <tr>
-        <th>${alumno.alumno}</th>
-        <td>${alumno.idalumno}</td>
-        <td>${alumno.observacion}</td>
+            <th>${alumno.alumno}</th>
+            <td>${alumno.idalumno}</td>
+            <td>${alumno.observacion}</td>
         </tr>
         `   
     });
@@ -81,8 +80,6 @@ let imprimir2 = (array)=>{
     var informacionAlumno ="";
 
     array.forEach((alumno) => {
-        
-        // console.log(index);
 
         informacionAlumno+=
         ` 
@@ -111,8 +108,6 @@ function guardar(){
     var codigoAlumno=document.getElementById("codigoAlumno");
     var observacion=document.getElementById("observacion").value;
 
-    // console.log("observacion: " + observacion +" codigoAlumno: " + codigoAlumno.textContent)
-
     if(observacion==""){
         alert("Debe ingresar la observacion")
     }else{
@@ -127,13 +122,13 @@ function guardar(){
             method: "POST",
             body: JSON.stringify(body),
             headers: {"Content-type": "application/json; charset=UTF-8"}
-          })
-          .then(response => response.json()) 
-          .then(json => {
-            console.log(json);
-            location.reload();
-           })
-          .catch(err => console.log(err));
+        })
+        .then(response => response.json()) 
+        .then(json => {
+          console.log(json);
+          location.reload();
+         })
+        .catch(err => console.log(err));
 
     }
 
