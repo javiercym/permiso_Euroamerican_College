@@ -27,7 +27,7 @@ function reporte(){
     //para local
     //window.location="/pages/reporte.html";
     //para git pages
-    window.location="/permiso_Euroamerican_College/pages/registro.html";
+    window.location="/permiso_Euroamerican_College/pages/reporte.html";
 }
 
 
