@@ -1,15 +1,52 @@
 const url = 'https://espartano.azurewebsites.net/alumnos';
 const urlGuardar = 'https://espartano.azurewebsites.net/registraSalida';
+
 let rellenar = document.querySelector("#rellenar"); 
+let rellenar2 = document.querySelector("#rellenar2"); 
+
 var nombreAlumno;
 var cantidadResultados;
 
 var input = document.getElementById("nombreAlumno");
 
+
 if (localStorage.getItem("usuario") ==null) {
     //window.location="/index.html";
     window.location="/permiso_Euroamerican_College/";
 }
+window.onload = () => {
+    obtenerNombreAlumno();
+}
+
+function obtenerNombreAlumno(){
+
+    fetch(url)
+    .then(response => response.json())
+    .then(json=>{imprimir2(json.data)
+    });
+
+    let imprimir2 = (array)=>{
+
+        var informacionAlumno ="";
+
+        array.forEach((alumno) => {
+
+            informacionAlumno+=
+            ` 
+            <option value="${alumno.alumno}">${alumno.alumno}</option>
+
+            `  
+        });
+        rellenar2.innerHTML= informacionAlumno
+    }
+}
+
+function obtenerValorSeleccionado() {
+    nombreAlumno2=document.getElementById("nombreAlumno2").value;
+    console.log(nombreAlumno2);
+    BuscarAlumno(nombreAlumno2)
+  }
+
 
 function regresar(){
     //para local
@@ -19,12 +56,12 @@ function regresar(){
 }
 
 
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-   document.getElementById(BuscarAlumno()).click();
-  }
-});
+// input.addEventListener("keypress", function(event) {
+//   if (event.key === "Enter") {
+//     event.preventDefault();
+//    document.getElementById(BuscarAlumno()).click();
+//   }
+// });
 
 
 async function obtenerDatos(nombreAlumno){
@@ -97,9 +134,9 @@ let imprimir = (array)=>{
     rellenar.innerHTML= informacionAlumno
 }
 
-function BuscarAlumno(){
+function BuscarAlumno(nombre){
    
-    nombreAlumno=document.getElementById("nombreAlumno").value;
+    nombreAlumno=nombre
 
     if(nombreAlumno=="")
     {
@@ -142,4 +179,5 @@ function guardar(){
     }
 
 }
+
 

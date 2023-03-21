@@ -2,8 +2,13 @@ const url = 'https://espartano.azurewebsites.net/reporteSalidaEspeciales';
 const urlBuscar = 'https://espartano.azurewebsites.net/alumnos';
 const urlGuardar = "https://espartano.azurewebsites.net/registraSalidaEspecial"; 
 
+
+
+
+
 let rellenar = document.querySelector("#rellenar"); 
 let rellenar2 = document.querySelector("#rellenar2"); 
+let rellenar3 = document.querySelector("#rellenar3"); 
 var cantidadResultados;
 
 if (localStorage.getItem("usuario") ==null) {
@@ -13,7 +18,39 @@ if (localStorage.getItem("usuario") ==null) {
 
 window.onload = () => {
     obtenerDatos();
+    obtenerNombreAlumno();
 }
+
+function obtenerNombreAlumno(){
+
+    fetch(urlBuscar)
+    .then(response => response.json())
+    .then(json=>{imprimir2(json.data)
+    });
+
+    let imprimir2 = (array)=>{
+
+        var informacionAlumno ="";
+
+        array.forEach((alumno) => {
+
+            informacionAlumno+=
+            ` 
+            <option value="${alumno.alumno}">${alumno.alumno}</option>
+
+            `  
+        });
+        rellenar3.innerHTML= informacionAlumno
+    }
+}
+
+function obtenerValorSeleccionado() {
+    nombreAlumno2=document.getElementById("nombreAlumno2").value;
+    console.log(nombreAlumno2);
+    BuscarAlumno(nombreAlumno2)
+}
+
+
 
 function regresar(){
     //para local
@@ -53,8 +90,9 @@ let imprimir = (array)=>{
 }
 
 
-function BuscarAlumno(){
-    nombreAlumno=document.getElementById("nombreAlumno").value;
+function BuscarAlumno(nombre){
+    
+    nombreAlumno=nombre
 
     if(nombreAlumno=="")
     {
