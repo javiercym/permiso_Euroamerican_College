@@ -9,7 +9,9 @@ body{
     background-attachment: fixed;
     font-family: humanist !important;
 }
-
+#spinner-container{
+    text-align: center;
+}
 .datos{
     margin-top: 50px;
     background-color: #d6d2c7dd;

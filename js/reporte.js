@@ -15,14 +15,26 @@ function regresar(){
 }
 
 window.onload = () => {
+    mostrarSpinner();
     obtenerDatos();
 }
+
+function mostrarSpinner() {
+    document.getElementById("spinner-container").style.display = "block";
+    document.getElementById("formulario-container").style.display = "none";
+}
+function mostrarFormulario() {
+    document.getElementById("spinner-container").style.display = "none";
+    document.getElementById("formulario-container").style.display = "block";
+}
+
 
 async function obtenerDatos(){
     await fetch(url)
         .then(response => response.json())
         .then(json=>{imprimir(json.data),
             cantidadResultados=(json.mensaje);
+            mostrarFormulario();
         });
     if(cantidadResultados =="Se encontraron 0 resultado(s)."){
         alert("No se encontraron resultados")

@@ -9,20 +9,31 @@ var cantidadResultados;
 
 var input = document.getElementById("nombreAlumno");
 
-
 if (localStorage.getItem("usuario") ==null) {
     //window.location="/index.html";
     window.location="/permiso_Euroamerican_College/";
 }
 window.onload = () => {
+    mostrarSpinner();
     obtenerNombreAlumno();
+}
+
+function mostrarSpinner() {
+    document.getElementById("spinner-container").style.display = "block";
+    document.getElementById("formulario-container").style.display = "none";
+}
+function mostrarFormulario() {
+    document.getElementById("spinner-container").style.display = "none";
+    document.getElementById("formulario-container").style.display = "block";
 }
 
 function obtenerNombreAlumno(){
 
     fetch(url)
     .then(response => response.json())
-    .then(json=>{imprimir2(json.data)
+    .then(json=>{
+        imprimir2(json.data);
+        mostrarFormulario();
     });
 
     let imprimir2 = (array)=>{
@@ -34,7 +45,6 @@ function obtenerNombreAlumno(){
             informacionAlumno+=
             ` 
             <option value="${alumno.alumno}">${alumno.alumno}</option>
-
             `  
         });
         rellenar2.innerHTML= informacionAlumno
@@ -47,22 +57,12 @@ function obtenerValorSeleccionado() {
     BuscarAlumno(nombreAlumno2)
   }
 
-
 function regresar(){
     //para local
     //window.location="/pages/home.html/";
     //para git pages
     window.location="/permiso_Euroamerican_College/pages/home.html";
 }
-
-
-// input.addEventListener("keypress", function(event) {
-//   if (event.key === "Enter") {
-//     event.preventDefault();
-//    document.getElementById(BuscarAlumno()).click();
-//   }
-// });
-
 
 async function obtenerDatos(nombreAlumno){
     await fetch(url+"/"+nombreAlumno)
@@ -166,18 +166,19 @@ function guardar(){
             "observacion": observacion,
             "fecha": "2023-03-20"
         }
- 
         fetch(urlGuardar, {
             method: "POST",
             body: JSON.stringify(body),
             headers: {"Content-type": "application/json; charset=UTF-8"}
         })
         .then(response => response.json()) 
-        .then(json => console.log(json))
+        .then(json => {
+          console.log(json);
+          alert(json.mensaje)
+          location.reload();
+         })
         .catch(err => console.log(err));
-
     }
-
 }
 
 

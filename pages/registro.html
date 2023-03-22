@@ -23,104 +23,82 @@
 
 <div class="container">
     <div class="datos">
-        <div class="row buscador">
-            <div class="col-lg-12">
-                <div>
-                    <center><h1>Registro de salidas</h1></center>
+
+        <div id="spinner-container">
+            <div class="spinner-border text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        
+        <div class="contenido" id="formulario-container" style="display:none;">
+            <div class="row buscador">
+                <div class="col-lg-12">
+                    <div>
+                        <center><h1>Registro de salidas</h1></center>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row buscador">
+    
+                <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-10">
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon1">Buscar Alumno</span>
+                        <input type="text" id="nombreAlumno2" list="listaNombreAlumnos" class="form-control"  placeholder="Escriba el nombre del alumno" required onchange="obtenerValorSeleccionado()">
+                        <datalist id="listaNombreAlumnos">
+                            <div id="rellenar2">
+                            </div>
+                        </datalist>
+                    </div> 
+                </div>
+            </div> 
+            <br>
+            <div id="rellenar" class="col-xl-11 buscador" >
+    
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Apellidos y nombres</span>
+                    <input type="text" id="nombreApellido" class="form-control" value="Apellidos y nombres"disabled>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Codigo Alumno</span>
+                    <input type="text" id="codigoAlumno"  class="form-control" value="Codigo Alumno" disabled>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Grado y sección</span>
+                    <input type="text" id="gradoSeccion"  class="form-control" value="Grado y sección" disabled>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Conductor</span>
+                    <input type="text" id="conductor"  class="form-control" value="Conductor" disabled>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">N° Camioneta</span>
+                    <input type="text" id="camioneta"  class="form-control" value="N° Camioneta" disabled>
+                </div>
+            
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Observación</span>
+                    <input type="text" id="observacion" class="form-control" placeholder="Observación" >
+                </div>
+            
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Fecha</span>
+                    <input type="text" id="fecha"  class="form-control" value="Fecha" disabled>
+                </div>
+            </div>
+            <br>
+            <div class="row buscador">
+                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
+                    <button type="button" class="btn btn-outline-dark enviar submit" onclick="guardar()">Guardar</button>
                 </div>
             </div>
         </div>
-        <br>
-        <div class="row buscador">
-
-            <div class="col-xl-11 col-lg-11 col-md-11 col-sm-11 col-10">
-                <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1">Buscar Alumno</span>
-                    <input type="text" id="nombreAlumno2" list="listaNombreAlumnos" class="form-control"  placeholder="Escriba el nombre del alumno" required onchange="obtenerValorSeleccionado()">
-                    <datalist id="listaNombreAlumnos">
-                        <div id="rellenar2">
-                            <!-- <option value="gato">gato bonito</option>
-                            <option value="perro">perro llamtivo</option>
-                            <option value="mono">mono gua gua</option>
-                            <option value="perrito">perrito sadas</option> -->
-                        </div>
-                    </datalist>
-                </div> 
-            </div>
-        </div> 
-        <br>
-        <div id="rellenar" class="col-xl-11 buscador" >
-
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Apellidos y nombres</span>
-                <input type="text" id="nombreApellido" class="form-control" value="Apellidos y nombres"disabled>
-            </div>
-        
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Codigo Alumno</span>
-                <input type="text" id="codigoAlumno"  class="form-control" value="Codigo Alumno" disabled>
-            </div>
-        
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Grado y sección</span>
-                <input type="text" id="gradoSeccion"  class="form-control" value="Grado y sección" disabled>
-            </div>
-        
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Conductor</span>
-                <input type="text" id="conductor"  class="form-control" value="Conductor" disabled>
-            </div>
-        
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">N° Camioneta</span>
-                <input type="text" id="camioneta"  class="form-control" value="N° Camioneta" disabled>
-            </div>
-        
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Observación</span>
-                <input type="text" id="observacion" class="form-control" placeholder="Observación" >
-            </div>
-        
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Fecha</span>
-                <input type="text" id="fecha"  class="form-control" value="Fecha" disabled>
-            </div>
-        </div>
-        <br>
-        <div class="row buscador">
-            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
-                <button type="button" class="btn btn-outline-dark enviar submit" onclick="guardar()">Guardar</button>
-            </div>
-        </div>
-
     </div>
 </div>
-
-
-<!-- <div class="container">
-    <div class="datos">
-        <div class="row buscador">
-            <div class="col-11">
-              <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1">Buscar Alumno</span>
-                    <input type="text" id="nombreAlumno2" list="listaNombreAlumnos" class="form-control"  placeholder="Escriba el nombre del alumno" required onchange="obtenerValorSeleccionado()">
-                    <datalist id="listaNombreAlumnos">
-                            <option value="gato">gato bonito</option>
-                            <option value="perro">perro llamtivo</option>
-                            <option value="mono">mono gua gua</option>
-                            <option value="perrito">perrito sadas</option>
-                    </datalist>
-                </div> 
-
-            </div>
-            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1">
-                <button type="button" class="btn btn-outline-dark enviar submit" onclick="BuscarAlumno()">Buscar</button>
-            </div>
-        </div> 
-
-
-    </div>
-</div> -->
     <script src="../js/registro.js"></script>
 </body>
 </html>

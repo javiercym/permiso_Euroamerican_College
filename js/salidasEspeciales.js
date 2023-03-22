@@ -17,15 +17,26 @@ if (localStorage.getItem("usuario") ==null) {
 }
 
 window.onload = () => {
+    mostrarSpinner();
     obtenerDatos();
     obtenerNombreAlumno();
+}
+function mostrarSpinner() {
+    document.getElementById("spinner-container").style.display = "block";
+    document.getElementById("formulario-container").style.display = "none";
+}
+function mostrarFormulario() {
+    document.getElementById("spinner-container").style.display = "none";
+    document.getElementById("formulario-container").style.display = "block";
 }
 
 function obtenerNombreAlumno(){
 
     fetch(urlBuscar)
     .then(response => response.json())
-    .then(json=>{imprimir2(json.data)
+    .then(json=>{
+        imprimir2(json.data);
+        mostrarFormulario();
     });
 
     let imprimir2 = (array)=>{

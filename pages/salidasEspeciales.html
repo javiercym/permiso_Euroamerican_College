@@ -26,32 +26,41 @@
 
 <div class="container">
     <div class="datos">
-        <div class="row buscador">
-            <div class="col-lg-12">
-                <div>
-                    <h1>Salidas Especiales</h1>
-                </div>
+
+        <div id="spinner-container">
+            <div class="spinner-border text-secondary" role="status">
+              <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <br>
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar</button>
-        </div><br>
 
-        <div class="col-lg-12">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Nombre del Alumno</th>
-                    <th scope="col">Codigo del alumno</th>
-                    <th scope="col">Observacion</th>
-                  </tr>
-                </thead>
-                <tbody id="rellenar">
-                </tbody>
-            </table>
+        <div class="contenido" id="formulario-container" style="display:none;">
+            <div class="row buscador">
+                <div class="col-lg-12">
+                    <div>
+                        <h1>Salidas Especiales</h1>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-lg-2">
+                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Registrar</button>
+            </div><br>
+    
+            <div class="col-lg-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre del Alumno</th>
+                        <th scope="col">Codigo del alumno</th>
+                        <th scope="col">Observacion</th>
+                      </tr>
+                    </thead>
+                    <tbody id="rellenar">
+                    </tbody>
+                </table>
+            </div>
+            <br>
         </div>
-        <br>
     </div>
 </div>
     
