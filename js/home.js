@@ -29,5 +29,10 @@ function reporte(){
     //para git pages
     window.location="/permiso_Euroamerican_College/pages/reporte.html";
 }
-
+function AsistenciaFamilia(){
+        //para local
+    //window.location="/pages/reporte.html";
+    //para git pages
+    window.location="/permiso_Euroamerican_College/pages/asistenciaFamilia.html";
+}
 
